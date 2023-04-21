@@ -1,0 +1,250 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+:root {
+    --header-background-color: #FFE794;
+	--new-project-background-color: #D1C69E;
+    --new-project-hover-background-color: #c4b98e;
+    --new-project-active-background-color: #b7ac7e;
+    --delete-background-color: #ff5252;
+	--delete-hover-background-color: #f84242;
+	--delete-active-background-color: #f80000;
+    --edit-background-color: #7E8BF9;
+    --edit-hover-background-color: #5e6bf9;
+    --edit-active-background-color: #3d4bf9;
+    --done-background-color: #7FDB88;
+    --done-hover-background-color: #5fd97f;
+    --done-active-background-color: #13d54d;
+    
+    --new-task-background-color: #F8CA94;
+    --new-task-hover-background-color: #f8c17f;
+    --new-task-active-background-color: #f8b96b;
+
+    --project-description-background-color: #FFE3AB;
+
+    --header-height: 95px;
+
+    --new-project-button-height: 50px;
+
+    --project-component-width: 250px;
+    --project-component-height: 50px;
+    
+    --card-height: 250px;
+    --card-width: 250px;
+
+    --card-shadow-color: rgb(0 0 0 / 50%);
+    --card-box-shadow: 0px 1px 5px var(--card-shadow-color),
+                       0px 1px 5px var(--card-shadow-color);
+}
+
+body {
+    background-color: #FFFBEF;
+}
+
+header {
+    height: var(--header-height);
+    background-color: var(--header-background-color);
+}
+
+@media only screen and (min-width: 1104px) {
+    main {
+        width: 1064px;
+    }
+    .projects {
+        width: 1064px;
+        padding: 0 8px;
+    }
+}
+
+@media only screen and (min-width: 830px) and (max-width: 1103px) {
+    main {
+        width: 798px;
+    }
+    .projects {
+        width: 798px;
+        padding: 0 8px;
+    }
+}
+
+@media only screen and (min-width: 564px) and (max-width: 829px) {
+    main {
+        width: 532px;
+    }
+    .projects {
+        width: 532px;
+        padding: 0 8px;
+    }
+}
+
+@media only screen and (max-width: 563px) {
+    main {
+        width: 266px;
+    }
+    .projects {
+        width: 266px;
+        padding: 0 8px;
+    }
+}
+
+main {
+	display: block;
+	height: calc(100vh - var(--header-height));
+}
+
+main .main-title {
+	font-family: 'Poppins', sans-serif;
+	font-weight: 600;
+	font-size: 32px;
+}
+
+main #new_project_button {
+	display: flex;
+	min-height: var(--new-project-button-height);
+	height: var(--new-project-button-height);
+	border: none;
+	background-color: var(--new-project-background-color);
+	color: white;
+	font-family: 'Josefin Sans', sans-serif;
+	font-size: 22px;
+	font-weight: 400px;
+}
+
+main #new_project_button:hover {
+	background-color: var(--new-project-hover-background-color);
+}
+
+main #new_project_button:active {
+	background-color: var(--new-project-active-background-color);
+}
+
+main .projects .project {
+	display: flex;
+	flex-direction: column;
+	min-height: var(--card-height);
+	height: var(--card-height);
+	min-width: var(--card-width);
+	width: var(--card-width);
+	background-color: white;
+	box-shadow: var(--card-box-shadow);
+	animation-name: card-cancel-hover;
+	animation-duration: 0.1s;
+}
+
+main .projects .project:hover {
+	animation-name: card-hover;
+	animation-duration: 0.2s;
+	box-shadow: none;
+}
+
+@keyframes card-hover {
+	from {
+		box-shadow: var(--card-box-shadow);
+	}
+	to {
+		box-shadow: none;
+	}
+}
+
+@keyframes card-cancel-hover {
+	from {
+		box-shadow: none;
+	}
+	to {
+		box-shadow: var(--card-box-shadow);
+	}
+}
+
+main .projects .project .project-title {
+	background-color: var(--task-title-high-priority-background-color);
+}
+
+main .projects .project .project-title span {
+	font-family: 'Josefin Sans', sans-serif;
+	font-size: 20px;
+	font-weight: 400;
+}
+
+main .projects .project .project-description {
+	background-color: var(--project-description-background-color);
+	cursor: pointer;
+	-webkit-user-select: none;  /* Chrome all / Safari all */
+	-moz-user-select: none;     /* Firefox all */
+	-ms-user-select: none;      /* IE 10+ */
+	user-select: none;          /* Likely future */ 
+}
+
+main .projects .project .project-description div span:first-child {
+	font-family: 'Josefin Sans', sans-serif;
+	font-size: 14px;
+	font-weight: regular;
+	line-height: normal !important;
+}
+
+main .projects .project .project-description div span:last-child {
+	font-family: 'Josefin Sans', sans-serif;
+	font-size: 16px;
+	font-weight: regular;
+	line-height: normal !important;
+}
+
+.project_component {
+	background-color: #F4D089;
+	width: var(--sidebar-buttons-width);
+	min-height: var(--project-component-height);
+	height: var(--project-component-height);
+	display: flex;
+}
+
+.project_component > .delete {
+	width: 20%;
+    border: none;
+	background-color: var(--delete-background-color);
+}
+
+.project_component > .delete:hover {
+    background-color: var(--delete-hover-background-color);
+}
+
+.project_component > .delete:active {
+    background-color: var(--delete-active-background-color);
+}
+
+.project_component > .edit {
+	flex: 1;
+    border: none;
+    background-color: var(--edit-background-color);
+}
+
+.project_component > .edit:hover {
+    background-color: var(--edit-hover-background-color);
+}
+
+.project_component > .edit:active {
+    background-color: var(--edit-active-background-color);
+}
+
+.project_component > .done {
+	flex: 1;
+    border: none;
+    background-color: var(--done-background-color);
+}
+
+.project_component > .done:hover {
+    background-color: var(--done-hover-background-color);
+}
+
+.project_component > .done:active {
+    background-color: var(--done-active-background-color);
+}
+
+.project_component > input {
+	width: 60%;
+	border: 0;
+	text-align: center;
+    background-color: transparent;
+    cursor: pointer;
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+.project_component > input:focus {
+	outline: none;
+}

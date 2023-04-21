@@ -1,0 +1,224 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+:root {
+    --header-background-color: #FFE794;
+	--new-project-background-color: #D1C69E;
+    --new-project-hover-background-color: #c4b98e;
+    --new-project-active-background-color: #b7ac7e;
+    --delete-background-color: #ff5252;
+	--delete-hover-background-color: #f84242;
+	--delete-active-background-color: #f80000;
+    --edit-background-color: #7E8BF9;
+    --edit-hover-background-color: #5e6bf9;
+    --edit-active-background-color: #3d4bf9;
+    --done-background-color: #7FDB88;
+    --done-hover-background-color: #5fd97f;
+    --done-active-background-color: #13d54d;
+    
+    --new-task-background-color: #F8CA94;
+    --new-task-hover-background-color: #f8c17f;
+    --new-task-active-background-color: #f8b96b;
+
+    --task-title-high-priority-background-color: #FF8B00;
+    --task-title-medium-priority-background-color: #FFA639;
+    --task-title-low-priority-background-color: #FFBE6F;
+
+    --task-description-background-color: #FEFFDF;
+
+    --header-height: 95px;
+    
+    --new-task-button-height: 50px;
+
+    --card-height: 250px;
+    --card-width: 250px;
+
+    --card-title-height: calc(var(--card-height) / 5);
+
+    --card-shadow-color: rgb(0 0 0 / 50%);
+    --card-box-shadow: 0px 1px 5px var(--card-shadow-color),
+                       0px 1px 5px var(--card-shadow-color);
+}
+
+body {
+    background-color: #FFE1BD;
+}
+
+header {
+    height: var(--header-height);
+    background-color: var(--header-background-color);
+}
+
+@media only screen and (min-width: 1104px) {
+    main {
+        width: 1064px;
+    }
+    .tasks {
+        width: 1064px;
+        padding: 0 8px;
+    }
+}
+
+@media only screen and (min-width: 830px) and (max-width: 1103px) {
+    main {
+        width: 798px;
+    }
+    .tasks {
+        width: 798px;
+        padding: 0 8px;
+    }
+}
+
+@media only screen and (min-width: 564px) and (max-width: 829px) {
+    main {
+        width: 532px;
+    }
+    .tasks {
+        width: 532px;
+        padding: 0 8px;
+    }
+}
+
+@media only screen and (max-width: 563px) {
+    main {
+        width: 266px;
+    }
+    .tasks {
+        width: 266px;
+        padding: 0 8px;
+    }
+}
+
+main {
+    display: block;
+    height: calc(100vh - var(--header-height));
+}
+
+main .main-title {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 32px;
+}
+
+main #new_task_button {
+	display: flex;
+	min-height: var(--new-task-button-height);
+	height: var(--new-task-button-height);
+    border: none;
+    background-color: var(--new-task-background-color);
+    color: black;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 22px;
+    font-weight: 400px;
+}
+
+main #new_task_button:hover {
+    background-color: var(--new-task-hover-background-color);
+}
+
+main #new_task_button:active {
+    background-color: var(--new-task-active-background-color);
+}
+
+main .tasks .task {
+    display: flex;
+    flex-direction: column;
+    min-height: var(--card-height);
+    height: var(--card-height);
+    min-width: var(--card-width);
+    width: var(--card-width);
+    background-color: white;
+    box-shadow: var(--card-box-shadow);
+    animation-name: card-cancel-hover;
+    animation-duration: 0.1s;
+}
+
+main .tasks .task:hover {
+    animation-name: card-hover;
+    animation-duration: 0.2s;
+    box-shadow: none;
+	cursor: pointer;
+}
+
+@keyframes card-hover {
+    from {
+        box-shadow: var(--card-box-shadow);
+    }
+    to {
+        box-shadow: none;
+    }
+}
+
+@keyframes card-cancel-hover {
+    from {
+        box-shadow: none;
+    }
+    to {
+        box-shadow: var(--card-box-shadow);
+    }
+}
+
+main .tasks .task .task-title {
+    height: var(--card-title-height);
+    background-color: var(--task-title-high-priority-background-color);
+}
+
+main .tasks .task .task-title div {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+}
+
+main .tasks .task .task-description {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 16px;
+    background-color: var(--task-description-background-color);
+}
+
+.modal-content {
+	background-color: #FFE1BD;
+	font-family: 'Josefin Sans', sans-serif;
+}
+
+#InputTaskTitle {
+	border: none;
+	border-bottom: 1px solid black;
+	background-color: transparent;
+	font-size: 1rem;
+	font-weight: 400;
+	height: 30px;
+	color: black;
+}
+
+#InputTaskTitle::placeholder,
+#InputDescription::placeholder {
+	color: black;
+}
+
+#InputDescription {
+	resize: none;
+	background-color: #7B7B7B7F;
+	border: none;
+	height: 130px;
+}
+
+#InputPriority {
+	border: none;
+}
+
+#InputTaskTitle,
+#InputDescription,
+#InputPriority {
+	border-radius: 0px;
+	padding: 0.25rem 0.5rem;
+}
+
+#InputTaskTitle:focus,
+#InputDescription:focus,
+#InputPriority:focus {
+	outline: 0;
+    box-shadow: none;
+}
+
+.modal-footer > * {
+	margin: 0.25rem 0;
+}
